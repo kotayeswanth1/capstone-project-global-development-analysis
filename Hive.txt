@@ -1,0 +1,39 @@
+hadoop@LAPTOP-SPPPB9PB~$ su - hadoop
+Password:
+hadoop@LAPTOP-SPPPB9PB:~$ hive
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/hadoop/apache-hive-3.1.2-bin/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = d43da619-f4cd-49be-b482-a43350a4f1be
+
+Logging initialized using configuration in jar:file:/home/hadoop/apache-hive-3.1.2-bin/lib/hive-common-3.1.2.jar!/hive-log4j2.properties Async: true
+Hive Session ID = cab9de30-39ba-4985-9b57-6013a458fe84
+Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
+hive> show databases;
+OK
+default
+Time taken: 0.706 seconds, Fetched: 1 row(s)
+
+hive> create table globalmodify_csv (User_id int,CountryName String,CountryCode String,IndicatorName String,IndicatorCode String,Year int,Value decimal)
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE
+    > TBLPROPERTIES ('skip.header.line.count' = '1');
+OK
+Time taken: 0.276 seconds
+
+hive> load data inpath '/Globaldata/part-m-00000' INTO TABLE globaldata;
+Loading data to table default.globaldata
+OK
+Time taken: 1.602 seconds
+
+hive> select * from globalmodify_csv limit 5;
+OK
+1       Arab World      ARB     Adolescent fertility rate (births per 1000 women ages 15-19)    SP.ADO.TFRT     1960    134
+2       Arab World      ARB     Age dependency ratio (% of working-age population)      SP.POP.DPND     1960    88
+3       Arab World      ARB     Age dependency ratio old (% of working-age population)  SP.POP.DPND.OL  1960    7
+4       Arab World      ARB     Age dependency ratio young (% of working-age population)        SP.POP.DPND.YG  1960    81
+5       Arab World      ARB     Arms exports (SIPRI trend indicator values)     MS.MIL.XPRT.KD  1960    3000000
+Time taken: 0.369 seconds, Fetched: 5 row(s)

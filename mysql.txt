@@ -1,0 +1,59 @@
+yaswanth@LAPTOP-SPPPB9PB:~$ mysql -u root -p
+Enter password:
+ * Starting MySQL database server mysqld                                                                                                             [ OK ]
+hadoop@DESKTOP-EBUJP1M:~$ mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 55
+Server version: 8.0.34-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database capstone;
+Query OK, 1 row affected (3.02 sec)
+
+mysql> use capstone;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_capstone |
++--------------------+
+| Global             |
+| Globaldata         |
++--------------------+
+2 rows in set (0.01 sec)
+
+mysql> drop table Globaldata;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table Globaldata(User_id int (6) primary key, CountryName varchar(100),CountryCode varchar(100),IndicatorName varchar(100),IndicatorCode varchar(100),Year int(100),Value decimal(40,2));
+Query OK, 0 rows affected, 2 warnings (0.22 sec)
+
+mysql> LOAD DATA INFILE '/var/lib/mysql-files/Globaldata.csv' INTO TABLE Globaldata FIELDS TERMINATED BY ',' IGNORE 1 LINES (User_id, CountryName, CountryCo
+de,IndicatorName,IndicatorCode,Year,Value);
+Query OK, 2099 rows affected (0.48 sec)
+Records: 2099  Deleted: 0  Skipped: 0  Warnings: 0
+
+mysql> select * from Globaldata limit 5;
++---------+-------------+-------------+--------------------------------------------------------------+----------------+------+------------+
+| User_id | CountryName | CountryCode | IndicatorName                                                | IndicatorCode  | Year | Value      |
++---------+-------------+-------------+--------------------------------------------------------------+----------------+------+------------+
+|       1 | Arab World  | ARB         | Adolescent fertility rate (births per 1000 women ages 15-19) | SP.ADO.TFRT    | 1960 |     133.56 |
+|       2 | Arab World  | ARB         | Age dependency ratio (% of working-age population)           | SP.POP.DPND    | 1960 |      87.80 |
+|       3 | Arab World  | ARB         | Age dependency ratio old (% of working-age population)       | SP.POP.DPND.OL | 1960 |       6.63 |
+|       4 | Arab World  | ARB         | Age dependency ratio young (% of working-age population)     | SP.POP.DPND.YG | 1960 |      81.02 |
+|       5 | Arab World  | ARB         | Arms exports (SIPRI trend indicator values)                  | MS.MIL.XPRT.KD | 1960 | 3000000.00 |
++---------+-------------+-------------+--------------------------------------------------------------+----------------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql>
+
