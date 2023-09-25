@@ -1,4 +1,4 @@
-yaswanth@LAPTOP-SPPPB9PB:~$ mysql -u root -p
+project@LAPTOP-BSKHC7CG:~$ mysql -u root -p
 Enter password:
  * Starting MySQL database server mysqld                                                                                                             [ OK ]
 hadoop@DESKTOP-EBUJP1M:~$ mysql -u root -p
