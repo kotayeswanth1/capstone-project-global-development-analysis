@@ -1,4 +1,4 @@
-hadoop@LAPTOP-SPPPB9PB~$ su - hadoop
+project@LAPTOP-BSKHC7CG~$ su - hadoop
 Password:
 hadoop@DESKTOP-EBUJP1M:~$ spark-shell
 23/09/22 23:29:57 WARN Utils: Your hostname, DESKTOP-EBUJP1M resolves to a loopback address: 127.0.1.1; using 192.168.153.224 instead (on interface eth0)
