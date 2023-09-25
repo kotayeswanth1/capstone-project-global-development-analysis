@@ -1,6 +1,6 @@
-hadoop@LAPTOP-SPPPB9PB~$ su - hadoop
+project@LAPTOP-BSKHC7CG~$ su - hadoop
 Password:
-hadoop@LAPTOP-SPPPB9PB:~$ hive
+hadoop@LAPTOP-BSKHC7CG:~$ hive
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/hadoop/apache-hive-3.1.2-bin/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/hadoop/hadoop/share/hadoop/common/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
