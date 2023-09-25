@@ -1,6 +1,6 @@
 project@LAPTOP-BSKHC7CG:~$ su - hadoop
 Password:
-hadoop@LAPTOP-SPPPB9PB:~$ sqoop import --connect jdbc:mysql://localhost/capstone --username root -P --table Globaldata --target-dir /Global -m 1
+hadoop@LAPTOP-BSKHC7CG:~$ sqoop import --connect jdbc:mysql://localhost/capstone --username root -P --table Globaldata --target-dir /Global -m 1
 Warning: /home/hadoop/sqoop-1.4.7/../hbase does not exist! HBase imports will fail.
 Please set $HBASE_HOME to the root of your HBase installation.
 Warning: /home/hadoop/sqoop-1.4.7/../hcatalog does not exist! HCatalog jobs will fail.
