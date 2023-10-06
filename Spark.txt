@@ -22,35 +22,6 @@ Type :help for more information.
 
 scala> df.createTempView("global")
 
-scala> val nulvalue=spark.sql("SELECT * FROM global WHERE Year IS NULL OR Value IS NULL ").show()
-+-------+--------------------+-----------+--------------------+--------------+----+-----+
-|user_id|         countryname|countrycode|       indicatorname| indicatorcode|year|value|
-+-------+--------------------+-----------+--------------------+--------------+----+-----+
-|   null|         CountryName|CountryCode|       IndicatorName| IndicatorCode|null| null|
-|     20|East Asia & Pacif...|        EAS|Agriculture value...|NV.AGR.TOTL.KD|1960| null|
-|   1015|East Asia & Pacif...|        EAS|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1016|East Asia & Pacif...|        EAS|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1020|East Asia & Pacif...|        EAP|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1028|           Euro area|        EMU|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1029|           Euro area|        EMU|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1030|Europe & Central ...|        ECS|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1031|Europe & Central ...|        ECS|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1043|      European Union|        EUU|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1044|      European Union|        EUU|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1050|Heavily indebted ...|        HPC|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1056|         High income|        HIC|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1057|         High income|        HIC|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1066|   High income: OECD|        OEC|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1067|   High income: OECD|        OEC|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1073|Latin America & C...|        LCN|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1074|Latin America & C...|        LCN|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-|   1078|Latin America & C...|        LAC|Adjusted net nati...|NY.ADJ.NNTY.KD|1970| null|
-|   1079|Latin America & C...|        LAC|Adjusted net nati...|NY.ADJ.NNTY.CD|1970| null|
-+-------+--------------------+-----------+--------------------+--------------+----+-----+
-only showing top 20 rows
-
-nulvalue: Unit = ()
-
 scala> val ordering=spark.sql("select * from global order by value desc").show()
 +-------+--------------------+-----------+--------------------+--------------+----+----------+
 |user_id|         countryname|countrycode|       indicatorname| indicatorcode|year|     value|
