@@ -231,34 +231,6 @@ only showing top 20 rows
 sumofindicator: Unit = ()
 
 
-scala> val sumofindicator = spark.sql( "SELECT CountryName, SUM(Value) FROM global WHERE IndicatorName = 'Age dependency ratio, old (% of working-age popula
-tion)' OR IndicatorName = 'Adolescent fertility rate (births per 1000 women ages 15-19)' GROUP BY CountryName").show()
-+--------------------+----------+
-|         CountryName|sum(Value)|
-+--------------------+----------+
-| Lower middle income|      1160|
-| Low & middle income|       967|
-|Heavily indebted ...|      1513|
-|Latin America & C...|      1079|
-|Least developed c...|      1560|
-|East Asia & Pacif...|       591|
-|Caribbean small s...|      1564|
-|          Arab World|      1327|
-|East Asia & Pacif...|       667|
-|   High income: OECD|       425|
-|      European Union|       404|
-|         High income|       431|
-|Central Europe an...|       884|
-|Latin America & C...|      1040|
-|Fragile and confl...|      1261|
-|          Low income|      1354|
-|High income: nonOECD|       463|
-|Europe & Central ...|       423|
-|Europe & Central ...|       615|
-|           Euro area|       307|
-+--------------------+----------+
-
-sumofindicator: Unit = ()
 
 
 scala>val avg=spark.sql("SELECT CountryName,IndicatorName,Year, AVG(Value) AS AverageValue FROM global GROUP BY CountryName, IndicatorName,Year").show()
